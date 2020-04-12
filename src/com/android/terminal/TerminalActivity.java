@@ -37,6 +37,8 @@ import androidx.viewpager.widget.PagerTitleStrip;
 import androidx.viewpager.widget.ViewPager;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
