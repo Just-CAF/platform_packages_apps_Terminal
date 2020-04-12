@@ -142,14 +142,6 @@ public class TerminalView extends ListView {
         }
     };
 
-    private final AdapterView.OnItemLongClickListener mLongClickListener =
-            new AdapterView.OnItemLongClickListener() {
-        @Override
-        public void onItemLongClick(AdapterView<?> parent, View v, int pos, long id) {
-            Log.i(TAG, "Long clicked");
-        }
-    };
-
     private final Runnable mDamageRunnable = new Runnable() {
         @Override
         public void run() {
@@ -186,8 +178,6 @@ public class TerminalView extends ListView {
         setOnKeyListener(mKeyListener);
 
         setOnItemClickListener(mClickListener);
-        this.setLongClickable(true);
-        setOnItemLongClickListener(mLongClickListener);
     }
 
     private final BaseAdapter mAdapter = new BaseAdapter() {
