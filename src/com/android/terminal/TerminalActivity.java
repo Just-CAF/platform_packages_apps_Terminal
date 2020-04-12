@@ -95,6 +95,7 @@ public class TerminalActivity extends Activity {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             final TerminalView view = new TerminalView(container.getContext());
+            registerForContextMenu(view);
             view.setId(android.R.id.list);
 
             final Terminal term = mService.getTerminals().valueAt(position);
@@ -122,6 +123,7 @@ public class TerminalActivity extends Activity {
             }
             view.saveHierarchyState(state);
 
+            unregisterForContextMenu(view);
             view.setTerminal(null);
             container.removeView(view);
         }
@@ -277,5 +279,13 @@ public class TerminalActivity extends Activity {
             }
         }
         return false;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+      super.onCreateContextMenu(menu, v, menuInfo);
+        menu.add(Menu.NONE, 1, Menu.NONE, "Previous command");
+        menu.add(Menu.NONE, 2, Menu.NONE, "Copy");
+        menu.add(Menu.NONE, 3, Menu.NONE, "Paste");
     }
 }
